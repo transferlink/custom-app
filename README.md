@@ -21,7 +21,7 @@ W odpowiedzi Twoje API powinno zwrócić strukturę JSON:
   - **amount** - kwota zasobu, np. zamówienia lub faktury, wartość brutto w najmniejszej jednostce danej waluty, np. groszach (integer)
   - **currency** - 3 znakowy kod waluty, np. PLN (string, max. 3 znaki)
   - **status** - wartość **PAID** (płatność zaksięgowana) lub **UNPAID** (płatność niezaksięgowana) (string enum)
-  - **created_at** - data utworzenia zasobu (np. data sprzedażowa na fakturze lub data utworzenia zamówienia w sklepie)
+  - **created_at** - data utworzenia zasobu w formacie unixtime (np. data sprzedażowa na fakturze lub data utworzenia zamówienia w sklepie) (integer)
 - **pages** - ilość stron z wynikami (ceil(ilość wszystkich wyników / limit z querystring)) (integer)
 ```
 Request: 
