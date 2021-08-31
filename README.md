@@ -3,7 +3,7 @@ Jeśli oprogramowanie, którego używasz, nie jest obsługiwane przez Transferli
 #### Podstawowa konfiguracja i założenia
 Zaloguj się na swoje konto Transferlink i przejdź do zakładki _Integracje / Aplikacje_, a następnie wybierz pozycję _Własna integracja_ z listy.
 
-Transferlink będzie komunikował się z Twoim API tylko zapytaniami **GET**. Komunikacja może następować z różnych adresów IP, dlatego nie ograniczaj dostępu do API w tym zakresie. Jako parametr autoryzacjny możesz wykorzystać nagłówek **X-Secret-Token**, który dołączymy do każdego zapytania. Wartość tego parametru będzie taka sama jak zawartość pola _Hasło do przesłania w nagłówku_, które skonfigurujesz w ustawieniach aplikacji. Odpowiedź Twojego API powinna być zawsze generowana w formacie JSON.
+Transferlink będzie komunikował się z Twoim API tylko zapytaniami **GET**. Komunikacja może następować z różnych adresów IP, dlatego nie ograniczaj dostępu do API w tym zakresie. Jako parametr autoryzacjny możesz wykorzystać nagłówek **X-Secret-Token**, który dołączymy do każdego zapytania. Wartość tego parametru będzie taka sama jak zawartość pola _Hasło do przesłania w nagłówku_, które skonfigurujesz w ustawieniach aplikacji. Odpowiedź Twojego API powinna być zawsze generowana w formacie JSON. Transferlink odpytuje o nowe zasoby na ogół co 10 minut.
 
 Zapoznaj się z definicją poniższych funkcji, utwórz odpowiednie funkcje w swojej aplikacji, a następnie w ustawieniach aplikacji wprowadź pełne adresy URL pod którymi funkcje mogą zostać wywołane. 
 #### Pobieranie listy zasobów
