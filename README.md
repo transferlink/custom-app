@@ -14,14 +14,15 @@ Do tego zapytania Transferlink dołączy 3 parametry w URL:
 
 W odpowiedzi Twoje API powinno zwrócić strukturę JSON:
 - **resources** - tablica z zasobami
-  - **id** - unikalny identyfikator zasobu dla całej aplikacji z Twojego systemu (string, max. 255 znaków)
-  - **resource_external_1** - identyfikator, który będzie wyszukiwany w tytule przelewu, np. numer faktury (string, max. 255 znaków)
-  - **resource_external_2** - identyfikator, który będzie wyszukiwany w tytule przelewu, np. numer zamówienia (string, max. 255 znaków)
-  - **resource_external_3** - identyfikator, który będzie wyszukiwany w tytule przelewu, np. numer Klienta (string, max. 255 znaków)
-  - **amount** - kwota zasobu, np. zamówienia lub faktury, wartość brutto w najmniejszej jednostce danej waluty, np. groszach (integer)
-  - **currency** - 3 znakowy kod waluty, np. PLN (string, max. 3 znaki)
-  - **status** - wartość **PAID** (płatność zaksięgowana) lub **UNPAID** (płatność niezaksięgowana) (string enum)
-  - **created_at** - data utworzenia zasobu w formacie unixtime (np. data sprzedażowa na fakturze lub data utworzenia zamówienia w sklepie) (integer)
+  - **id** - unikalny identyfikator zasobu dla całej aplikacji z Twojego systemu (obowiązkowy, string, max. 255 znaków)
+  - **resource_external_1** - identyfikator, który będzie wyszukiwany w tytule przelewu, np. numer faktury (obowiązkowy, string, max. 255 znaków)
+  - **resource_external_2** - identyfikator, który będzie wyszukiwany w tytule przelewu, np. numer zamówienia (opcjonalny, string, max. 255 znaków)
+  - **resource_external_3** - identyfikator, który będzie wyszukiwany w tytule przelewu, np. numer Klienta (opcjonalny, string, max. 255 znaków)
+  - **amount** - kwota zasobu, np. zamówienia lub faktury, wartość brutto w najmniejszej jednostce danej waluty, np. groszach (obowiązkowy, integer)
+  - **currency** - 3 znakowy kod waluty, np. PLN (obowiązkowy, string, max. 3 znaki)
+  - **status** - wartość **PAID** (płatność zaksięgowana) lub **UNPAID** (płatność niezaksięgowana) (obowiązkowy, string enum)
+  - **contractor_name** - pełna nazwa kontrahenta, np. *ABC sp. z o.o.* (obowiązkowy, string, max. 255 znaków)
+  - **created_at** - data utworzenia zasobu w formacie unixtime (np. data sprzedażowa na fakturze lub data utworzenia zamówienia w sklepie) (obowiązkowy, integer)
 - **pages** - ilość stron z wynikami (ceil(ilość wszystkich wyników / limit z querystring)) (integer)
 ```
 Request: 
@@ -43,6 +44,7 @@ Response:
       "resource_external_3": "keyword-for-detecting-payment-3",
       "amount": 1000,
       "currency": "PLN",
+      "contractor_name": "ABC sp. z o.o.",
       "status": "PAID",
       "created_at": 1630419109
     },
@@ -53,6 +55,7 @@ Response:
       "resource_external_3": "keyword-for-detecting-payment-3",
       "amount": "5500",
       "currency": "PLN",
+      "contractor_name": "F.H.U. Kowalski",
       "status": "UNPAID",
       "created_at": 1630419110
     }
