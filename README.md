@@ -10,7 +10,7 @@ Zapoznaj się z definicją poniższych funkcji, utwórz odpowiednie funkcje w sw
 Do tego zapytania Transferlink dołączy 3 parametry w URL:
 - **page** - numer strony z wynikami (integer)
 - **limit** - ilość wyników na jedną stronę (min. 10, max. 50) (integer)
-- **from** - data (unixtime) od której mają zostać pobrane zasoby (np. zamówienia - tylko nowsze niż wskazana data) (integer)
+- **date_from** - data (unixtime) od której mają zostać pobrane zasoby (np. zamówienia - tylko nowsze niż wskazana data) (integer)
 
 W odpowiedzi Twoje API powinno zwrócić strukturę JSON:
 - **resources** - tablica z zasobami
@@ -27,7 +27,7 @@ W odpowiedzi Twoje API powinno zwrócić strukturę JSON:
 ```
 Request: 
 
-GET https://example.com/api/resources?page=1&limit=2&from=1630419109
+GET https://example.com/api/resources?page=1&limit=2&date_from=1630419109
 X-Secret-Token: secret-password-from-settings
 Content-Type: application/json
 Accept: application/json
