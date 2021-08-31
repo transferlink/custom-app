@@ -21,6 +21,7 @@ W odpowiedzi Twoje API powinno zwrócić strukturę JSON:
   - **amount** - kwota zasobu, np. zamówienia lub faktury, wartość brutto w najmniejszej jednostce danej waluty, np. groszach (integer)
   - **currency** - 3 znakowy kod waluty, np. PLN (string, max. 3 znaki)
   - **status** - wartość **PAID** (płatność zaksięgowana) lub **UNPAID** (płatność niezaksięgowana) (string enum)
+  - **created_at** - data utworzenia zasobu (np. data sprzedażowa na fakturze lub data utworzenia zamówienia w sklepie)
 - **pages** - ilość stron z wynikami (ceil(ilość wszystkich wyników / limit z querystring)) (integer)
 ```
 Request: 
@@ -43,6 +44,7 @@ Response:
       "amount": 1000,
       "currency": "PLN",
       "status": "PAID",
+      "created_at": 1630419109
     },
     {
       "id": "unique-resource-identifier-2",
@@ -52,6 +54,7 @@ Response:
       "amount": "5500",
       "currency": "PLN",
       "status": "UNPAID",
+      "created_at": 1630419110
     }
   ],
   "pages": 7
